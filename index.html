@@ -8,6 +8,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans&display=swap"
         rel="stylesheet">
     <style>
+        @keyframes animaConteudo {
+            0% {
+                opacity: 0;
+                transform: translate(-150px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(0px);
+            }
+        }
+
+        @keyframes animaDireita {
+            0% {
+                opacity: 0;
+                transform: translate(150px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(0px);
+            }
+        }
+
+        @keyframes animaEsquerda {
+            0% {
+                opacity: 0;
+                transform: translate(-550px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate(0px);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: 'Open Sans', sans-serif;
@@ -23,7 +63,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
+            color: #4a2c2a;
             padding: 2rem;
         }
 
@@ -31,6 +71,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             margin-bottom: 1rem;
+
         }
 
         .hero p {
@@ -48,36 +89,72 @@
             border-radius: 25px;
             cursor: pointer;
             text-decoration: none;
-            transition: background-color 0.3s;
         }
 
         .btn:hover {
             background-color: #522d28;
         }
 
-        section {
+        #nossosProdutos {
             max-width: 900px;
             margin: 4rem auto;
             padding: 0 1rem;
+            animation: animaConteudo linear;
+            animation-timeline: view();
+            animation-range: entry 0% cover 55%;
+            transition-delay: 700ms;
+
+            section h2 {
+                font-family: 'Playfair Display', serif;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: #6b3e38;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            ul li {
+                background: #fbeee2;
+                padding: 1rem;
+                margin-bottom: 0.5rem;
+                border-radius: 10px;
+            }
         }
 
-        section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #6b3e38;
-        }
+        #galeriaDelicias {
+            padding-left: 30px;
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+            h2 {
+                text-align: center;
+            }
 
-        ul li {
-            background: #fbeee2;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border-radius: 10px;
+            .galeria {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                img {
+                    width: 50%;
+                    height: 350px;
+                    border-radius: 10px;
+                    box-shadow: 0px 0px 15px 2px;
+                }
+
+                .imgEsquerda {
+                    animation: animaEsquerda linear;
+                    animation-timeline: view();
+                    animation-range: entry 0% cover 45%;
+                }
+
+                .imgDireita {
+                    animation: animaDireita linear;
+                    animation-timeline: view();
+                    animation-range: entry 0% cover 45%;
+                    margin-left: 600px;
+                }
+            }
         }
 
         footer {
@@ -98,7 +175,7 @@
             target="_blank">FAÇA SEU PEDIDO</a>
     </div>
 
-    <section>
+    <section id="nossosProdutos">
         <h2>Nossos Produtos</h2>
         <ul>
             <li><strong>Brownie Tradicional:</strong> 50% cacau, feito com ingredientes selecionados.</li>
@@ -107,21 +184,15 @@
         </ul>
     </section>
 
-    <section>
+    <section id="galeriaDelicias">
         <h2>Galeria de Delícias</h2>
         <div class="galeria">
-            <img src="imagem/brownie.jpeg"
-                alt="Brownie artesanal">
-            <img src="imagem/bolo.jpeg"
-                alt="Bolo decorado">
-            <img src="imagem/pipoca.jpeg"
-                alt="Pipoca gourmet">
-                <img src="imagem/brigadeiro.jpeg"
-                alt="Brigadeiro gourmet">
-            <img src="imagem/bolo2.jpeg"
-                alt="Naked Cake">
-            <img src="imagem/cupcakc.jpeg"
-                alt="Cupcake">
+            <img src="imagem/brownie.jpeg" alt="Brownie artesanal " class="imgEsquerda">
+            <img src="imagem/bolo.jpeg" alt="Bolo decorado" class="imgDireita">
+            <img src="imagem/pipoca.jpeg" alt="Pipoca gourmet" class="imgEsquerda">
+            <img src="imagem/brigadeiro.jpeg" alt="Brigadeiro gourmet" class="imgDireita">
+            <img src="imagem/bolo2.jpeg" alt="Naked Cake" class="imgEsquerda">
+            <img src="imagem/cupcakc.jpeg" alt="Cupcake" class="imgDireita">
         </div>
     </section>
 
